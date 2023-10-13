@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="bootstrap.css"> -->
+    <link rel="stylesheet" href="register.css">
+    <title>Register</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">
+            <a href="index.html#home">HELTH CARE</a>
+        </div>
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+
+        <div class="navbar-links">
+         <ul>
+            <li><a class="" href="index.html">Home</a></li> 
+            <li><a class="" href="index.html#services">services</a></li>  
+            <li><a class="" href="index.html#appoinment-sec">Appoinment</a></li> 
+            <li><a class="" href="index.html#team">Team</a></li>
+            <li><a class="" href="index.html#contact">Contact</a></li>
+            
+            
+            <li class="registerPhone"><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+
+            <a  href="register.html" class="register"> Register</a>
+
+    </nav> 
+
+
+
+<!-- SIGN UP AND LOGIN CONTENT -->
+<div class="content">
+    
+    <div class="container right-panel-active">
+                        <!-- LOGIN -->
+        <div class="container-form login">
+            
+        <form class="form" action="login.php" method="POST" id="loginForm">
+            <div class="user-box">
+            <input type="email" name="email" id="loginUserInput">
+            <label id="loginUserLabel">Email</label>
+            </div>
+            <div class="user-box">
+            <input type="password"  name="password" id="loginPassInput">
+            <label id="loginPassLabel">Password</label>
+            </div>
+
+            <button name="submit" class="submit" id="signup">LOGIN</button>
+            <br>
+            <p>don't have an account</p>
+            <a href="#" class="signUp-btn" id="signUp">SIGN UP</a>
+        </form>
+        
+        </div>
+                        <!-- SIGN UP -->
+    
+        <div class="container-form signUp">
+            
+        <form class="form" action="" method="POST" id="signupForm">
+            <div class="user-box">
+            <input type="text" name="username" id="usernameInput" >
+            <label id="userLabel">Username</label>
+            </div>
+    
+            <div class="user-box">
+            <input type="email"  name="email" id="emailInput" >
+            <label id="emailLabel">Email</label>
+            </div>
+    
+            <div class="user-box">
+            <input type="password"  name="password" id="passInput" >        
+            <label id="passLabel">Password</label>
+    
+            </div>
+            <div class="user-box">
+            <input type="password"  name="reptPassword" id="reptpassInput" >
+            <label id="reptPassLabel">Repeat Password</label>
+            </div>
+            <h4></h4>
+            <button name="submit" class="submit" id="login">SIGN UP</button>
+            
+            <br>
+            <p>Already have an account</p>
+            <a href="#" class="login-btn" id="login-btn">LOGIN</a>
+        </form>
+        
+        </div>
+    
+            
+    
+    
+        <div class="container-overlay">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <button class="login-btn" id="log-in">LOGIN</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                <button class="signUp-btn" id="sign-up">SIGN UP</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<script src="register.js"></script>
+
+</body>
+</html>

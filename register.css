@@ -1,0 +1,491 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color:#00c1d9;
+}
+.brand-title a{
+    color: #ffffff;
+    font-family: cursive;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-color);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 2px 0px #000000e1;
+    backdrop-filter: blur(10px);
+}
+
+
+
+
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+.navbar-links li{
+    list-style: none;
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: cursive;
+    padding: .8rem;
+    display: block;
+    font-weight:700;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: all 0.3s linear;
+}
+.navbar-links li a:hover{
+    background-color: #0298ac;
+    color: #ffffff;
+}
+.navbar-links li a:active{
+    transform: scale(0.8);
+}
+.toggle-button{
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 36px;
+    height: 31px;
+    padding: 6px;
+    border: 1px solid white;
+}
+
+.bar{
+    width: 22px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.4s;
+
+}
+
+
+.register{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.4s;
+    padding: 0.5rem 1rem;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    background-color:#0043d9 ;
+    border-radius: 5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.register:hover{
+    background-color: #0137aa;
+    color: #ffffff;
+}
+.register:active{
+    transform: scale(0.8);
+}
+
+
+.registerPhone{
+    display: none;
+}
+
+/* --------------NAVBAR FOR MOBILE------------ */
+
+@media screen and (max-width:640px){
+    .register{
+        display: none;
+    }
+    .registerPhone{
+        display: block;
+        background-color: #1df74c;
+    }
+    .toggle-button{
+        display: flex;
+    }
+    .navbar-links{
+        display: none;
+        width: 100%;
+    }
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+    .navbar-links ul{
+        width: 100%;
+        flex-direction: column;
+        transition: transform 0.6s ease;
+
+    }
+    .navbar-links li{
+        text-align: center;
+        margin-top: 30px;
+    }
+    .navbar-links li a{
+        padding: 10px;    
+    }
+    .navbar-links.active{
+        display: flex;
+        height: 100vh;
+    }
+
+    .brand-title a{
+        font-size: 28px;
+    }
+ 
+
+
+
+    .toggle-button.activeBtn span:nth-child(1){
+        transform: translate(-10px, 10px) rotate(45deg);
+        width: 30px;
+        height: 2px;
+    }
+
+    .toggle-button.activeBtn span:nth-child(2){
+        opacity: 0;
+        transform: translate(15px);
+        
+    }
+
+    .toggle-button.activeBtn span:nth-child(3){
+        transform: translate(-10px, -6px) rotate(-40deg);
+        width: 30px;
+        height: 2px;
+    }
+
+    .toggle-button.activeBtn span{
+        background-color: rgb(255, 255, 255);
+        
+    }
+    .toggle-button.activeBtn{
+            border: none;    
+    }
+
+    
+}
+
+
+
+h4{
+    color: red;
+}
+body{
+    overflow: hidden;
+    background-color: rgb(223, 223, 223);
+} 
+.content{
+    height: 100vh;
+    width: 100%;
+    /* background-color: #00d900; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 70%;
+    height: 70%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 .1rem 1rem  #0000001a;
+    transition: transform 0.6s ease;
+    background: url(images/Lo-fi\ concept-cuate.png) no-repeat center center ; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.overlay{
+    position: relative;
+    height: 100%;
+    width: 200%;
+    left: -100%;
+    transform: translateX(0);
+    transition: transform 0.6s ease;
+    
+}
+.container-overlay{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+    left: 50%;
+    z-index: 99;
+    transition: transform 0.6s ease;
+}
+
+.container.right-panel-active
+.container-overlay{
+    transform: translateX(-100%);
+}
+.container.right-panel-active
+.overlay{
+    transform: translateX(50%);
+}
+
+.overlay-panel{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease;
+}
+.overlay-right{
+    right: 0%;
+}
+.container.right-panel-active
+.overlay-left{
+    transform: translateX(0);
+}
+.overlay-left{
+    transform: translateX(-20%);
+}
+.container.right-panel-active
+.overlay-right{
+    transform: translateX(20%);
+}
+.overlay-right .signUp-btn {
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem 3rem;
+    border-radius: 50px;
+    color: white;
+    font-family: monospace;
+    font-size: 16px;
+    background: linear-gradient(to right, rgb(51, 255, 0), rgb(198, 21, 21));
+    animation: animate 3s linear infinite;
+
+}
+.overlay-left .login-btn{
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem 3rem;
+    border-radius: 50px;
+    color: white;
+    font-family: monospace;
+    font-size: 16px;
+    background: linear-gradient(to right, rgb(51, 255, 0), rgb(198, 21, 21));
+    animation: animate 3s linear infinite;
+
+}
+.btn:active{
+    transform: scale(0.95);
+}
+
+
+
+.container-form{
+    position: absolute;
+    height: 100%;
+    transition: all 0.6 ease;
+}
+.form{
+    display: flex;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    
+}
+/* Sign up */
+.signUp{
+    width: 50%;
+    z-index: 1;
+    transition: transform 0.6s ease;
+}
+
+.container.right-panel-active
+.signUp{
+    transform: translateX(100%);
+    z-index: 5;
+}
+/* login */
+
+.login{
+    width: 50%;
+    z-index: 2;
+    transition: transform 0.6s ease;
+
+}
+.container.right-panel-active
+.login{
+    transform: translateX(100%);
+    z-index: 5;
+}
+
+
+
+
+/* SIGN UP AND LOGIN */
+.form .user-box {
+    position: relative;
+}
+  
+.form .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 15px;
+    color: #000000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #00000083;
+    outline: none;
+    background: transparent;
+}
+.form .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    pointer-events: none;
+    transition: .5s;
+    font-family: monospace;
+}
+.form .user-box .focusin{
+    top: -24px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 14px;
+}
+
+
+.form .submit {
+    background-color: #000000d7;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    color: #0ef;
+    transition: 0.2s linear;
+    padding: 0.5rem 2rem;
+    
+
+}
+.form > .submit {
+    margin-top: 1rem;
+}
+.form .submit:hover{
+    box-shadow: 0 0 5px #000000d7,
+    0 0 25px #000000d7,
+    0 0 50px #000000d7,
+    0 0 100px #000000d7;
+}
+.form .submit:hover{
+    animation: animate 1s linear infinite;
+}
+@keyframes animate {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+
+
+
+
+.signUp p{
+display: none;
+}
+.signUp .login-btn{
+display: none;
+}
+
+.login p{
+    display: none;
+}
+.login .signUp-btn{
+    display: none;
+}
+@media screen and (max-width:640px){
+    .container{
+        width: 100%;
+    }
+    .container-overlay{
+        display: none;
+    }
+    .container.right-panel-active .signUp {
+        transform: unset;
+        z-index: 5;
+    }
+    .signUp {
+        width: 100%;
+        transform: translateX(100%);
+    } 
+    .signUp p{
+        font-family: monospace;
+        display: block;
+    }
+    .signUp .login-btn{
+        font-family: monospace;
+        font-size: 15px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        display: block;
+
+    }
+    .login{
+        width: 100%;
+    }
+    .login p{
+        font-family: monospace;
+        display: block;
+
+    }
+    .login .signUp-btn{
+        font-family: monospace;
+        font-size: 15px;
+        letter-spacing: 1px;
+        font-weight: bold;
+        display: block;
+
+    }
+
+ }  
+
+
+
+
+
+
+
+  
+ 
+
+
+
+
+
+
+
+
+

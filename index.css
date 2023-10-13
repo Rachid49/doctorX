@@ -1,0 +1,928 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#00c1d9;
+}
+html{
+    scroll-behavior: smooth;
+}
+button{
+    position: fixed;
+    right: 2%;
+    top: 90%;
+    background-color: orangered;
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    padding: 7px 15px;
+    color: white;
+    font-weight: bold;
+    display: none;
+}
+/*  -----------------------------------
+    --------------NAVBAR---------------
+    ----------------------------------- */
+.brand-title a{
+    color: #ffffff;
+    font-family: cursive;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--primary-color);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 2px 0px #000000e1;
+    backdrop-filter: blur(10px);
+
+}
+
+
+
+
+.navbar-links ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+}
+.navbar-links li{
+    list-style: none;
+    
+}
+
+.navbar-links li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-family: cursive;
+    padding: .8rem;
+    display: block;
+    font-weight:700;
+    letter-spacing: 1px;
+    font-size: 14px;
+    transition: all 0.3s linear;
+}
+.navbar-links li a:hover{
+    background-color: #0298ac;
+    color: #ffffff;
+}
+.navbar-links li a:active{
+    transform: scale(0.8);
+}
+.toggle-button{
+    position: absolute;
+    top: 0.3rem;
+    right: 0.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 36px;
+    height: 31px;
+    padding: 6px;
+    border: 1px solid white;
+}
+
+.bar{
+    width: 22px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.4s;
+
+}
+
+
+.register{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.4s;
+    padding: 0.5rem 1rem;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    background-color:#0043d9 ;
+    border-radius: 5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.register:hover{
+    background-color: #0137aa;
+    color: #ffffff;
+}
+.register:active{
+    transform: scale(0.8);
+}
+
+
+.registerPhone{
+    display: none;
+}
+
+/* --------------NAVBAR FOR MOBILE------------ */
+
+@media screen and (max-width:640px){
+    .register{
+        display: none;
+    }
+    .registerPhone{
+        display: block;
+        background-color: #1df74c;
+    }
+    .toggle-button{
+        display: flex;
+    }
+    .navbar-links{
+        display: none;
+        width: 100%;
+    }
+    .navbar{
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+    .navbar-links ul{
+        width: 100%;
+        flex-direction: column;
+        transition: transform 0.6s ease;
+
+    }
+    .navbar-links li{
+        text-align: center;
+        margin-top: 30px;
+    }
+    .navbar-links li a{
+        padding: 10px;    
+    }
+    .navbar-links.active{
+        display: flex;
+        height: 100vh;
+        
+    }
+
+    .brand-title a{
+        font-size: 28px;
+    }
+ 
+    .toggle-button.activeBtn span:nth-child(1){
+        transform: translate(-10px, 10px) rotate(45deg);
+        width: 30px;
+        height: 2px;
+    }
+
+    .toggle-button.activeBtn span:nth-child(2){
+        opacity: 0;
+        transform: translate(15px);
+        
+    }
+
+    .toggle-button.activeBtn span:nth-child(3){
+        transform: translate(-10px, -6px) rotate(-40deg);
+        width: 30px;
+        height: 2px;
+    }
+
+    .toggle-button.activeBtn span{
+        background-color: rgb(255, 255, 255);
+        
+    }
+    .toggle-button.activeBtn{
+            border: none;    
+    }
+
+    
+}
+/*  -----------------------------------
+    --------------HOME-----------------
+    ----------------------------------- */
+.home{
+    padding: 1rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    min-height: 100vh;
+    align-items: center;
+    /* background: url(images/bg2.jpg) no-repeat center center ;  */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.home  .image{
+    flex: 1 1 20rem;
+    /* background-color: rebeccapurple; */
+}
+.home  .image img{
+    width: 100%;
+    object-fit: cover;
+    /* padding: 3rem; */
+}
+.home .container{
+    /* background-color: #00ffb3; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 4rem;
+    flex: 1 1 20rem;
+    color: #000000;
+    padding-bottom: 4rem;
+}
+.home .container .text{
+    width: 85%;
+/* background-color: #00d900; */
+    transition: transform 1s;
+    transform: translateX(-40px);
+    opacity: 0; 
+}
+.home .container .text.slide{
+    transform: translateX(0px);
+    opacity: 1;
+}
+.home .container .text h2{
+    text-transform: capitalize;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 38px;
+
+}
+.home .container .text p{
+    text-transform: capitalize;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+
+}
+.home .container .btns{
+    display: flex;
+    align-items: center;
+    /* background-color: yellow; */
+    flex: 1 1 6rem;
+
+}
+.home .container .btns a{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.4s;
+    padding: 0.3rem 1.8rem;
+    font-size: 17px;
+    text-align: center;
+    background-color: var(--primary-color);
+    border-radius: 5px;
+    margin-right: 30px;
+    border: 2px solid var(--primary-color);
+
+}
+
+
+.home .container .btns a:hover{
+    background-color: white;
+    color: #000000;
+    border: 2px solid var(--primary-color);
+
+}
+.home .container .clt{
+    width: 60%;
+    height: 20vh;
+    /* background-color: #00d900; */
+    display: flex;
+    gap: 1rem;
+    color: rgb(0, 0, 0);
+    flex: 1 1 6rem;
+
+}
+.home .container .clt div{
+    background-color: #00c0d949;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+}
+.home .container .clt div img{
+    width: 40%;
+}
+.home .container .clt div h2{
+    font-family: monospace;
+    font-size: 22px;
+
+}
+.home .container .clt div h3{
+    font-family: monospace;
+    font-size: 13px;
+    text-align: center;
+}
+
+ /*  -----------------------------------
+    --------------SERVICES--------------
+    ----------------------------------- */
+.services{
+    /* background-color: #0089ff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+.services h2{
+    font-family: monospace;
+    text-transform: capitalize;
+    font-size: 25px;
+}
+.services .box-card{
+    /* background-color: #1cb824; */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding: 2rem;
+   
+}
+.services .box-card .card{
+    width: 280px;
+    height: 310px;
+    /* background-color: #58ecff1a; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 .1rem 1rem  #0000002a;
+    transition: all 0.7s linear;
+}
+.services .box-card .card.showElementsLeft{
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.services .box-card .card img{
+    width: 50%;
+}
+
+.services .box-card .card h4{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+.services .box-card .card span{
+    font-size: 18px;
+    font-family:cursive;
+    text-align: center;
+    margin-top: 10px;
+}
+.services .box-card .card a{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: all 0.4s;
+    padding: 0.2rem 1.8rem;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid var(--primary-color);
+    margin-top: 3px;
+    background-color: var(--primary-color);
+
+}
+.services .box-card .card a:hover{
+    color: rgb(0, 0, 0);
+    background-color:white;
+}
+
+
+/*  -----------------------------------
+    --------------APPOINMENT-----------
+    ----------------------------------- */
+.appoinment-sec{
+    /* background-color: #26b413; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+
+}
+.appoinment-sec h2{
+    font-family: monospace;
+    text-transform: capitalize;
+    font-size: 23px;
+}
+.appoinment-sec .box{
+    /* background-color: #0089ff; */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 3rem;
+}
+.appoinment-sec .box .image{
+    width:  100px;
+    border-radius: 10px;
+    flex: 2 1 20rem;
+    padding: 1.2rem;
+}
+.appoinment-sec .box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+
+.appoinment-sec .box .text{
+    width: 100%;
+    /* background-color: #09ff00; */
+    flex: 1 1 20rem;
+    padding: 1rem;
+}
+.appoinment-sec .box .text h2{
+    text-transform: capitalize;
+    transition: transform 1s;
+
+}
+
+.appoinment-sec .box .text p{
+    font-size: large;
+    line-height: 27px;
+    text-transform: capitalize;
+    transition: transform 1.5s;
+
+}
+.appoinment-sec .box .text h2, .appoinment-sec .box .text p{
+    /* transition: transform 1s; */
+    transform: translateX(40px);
+    opacity: 0; 
+}
+.appoinment-sec .box .text h2.slide, .appoinment-sec .box .text p.slide{
+    transform: translateX(0px);
+    opacity: 1; 
+}
+.appoinment-sec .btns{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 8%;
+
+}
+
+.appoinment-sec .btns a{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 17px;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid var(--primary-color);
+    padding: .4rem 1.5rem;
+    transition: .4s;
+
+}
+
+.appoinment-sec .btns .appoinment{
+    background: var(--primary-color);
+    color: white;
+
+    transform: translateY(-40px);
+    opacity: 0; 
+}
+.appoinment-sec .btns .appoinment.slide{
+    transform: translateY(0px);
+    opacity: 1; 
+}
+.appoinment-sec .btns .appoinment:hover{
+    background: none;
+    color: #000000;
+    
+}
+.appoinment-sec .btns .more{
+    margin-right: 30px;
+    /* transition: transform .7s linear; */
+    transform: translateY(40px);
+    opacity: 0; 
+}
+.appoinment-sec .btns .more.slide{
+    transform: translateY(0px);
+    opacity: 1; 
+}
+.appoinment-sec .btns .more:hover{
+    background-color: var(--primary-color);
+    color: #fafafa;
+}
+
+
+
+
+/*  -----------------------------------
+    --------------TEAM-----------------
+    ----------------------------------- */
+
+
+.team{
+    /* background-color: #0088ff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+}
+.team h2{
+    font-family: monospace;
+    text-transform: capitalize;
+    font-size: 22px;
+}
+.team .box-card{
+    /* background-color: #f71d1d; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+.team .card{
+    width: 280px;
+    height: 300px;
+    box-shadow: 0 .1rem 1rem  #00000023;
+    /* background-color: #58ecff1a; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.team .card img{
+    width: 100%;
+    height: 92%;
+    border-radius: 15px;  
+    padding: 5px;
+    object-fit: cover;
+    overflow: hidden;
+}
+.team .card h2{
+    font-family: monospace;
+    text-transform: capitalize;
+    font-size: 15px;
+
+}
+
+
+
+
+
+/*  -----------------------------------
+    --------------CONTACT---------------
+    ----------------------------------- */
+
+.contact{
+    width: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+
+}
+.contact h2{
+    font-family: monospace;
+    text-transform: capitalize;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.contact .box{
+    /* background-color: #00d900; */
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    box-shadow: 0 .1rem 1rem  #0000001a;
+    gap: 1.5rem;
+}
+.contact .box .iframe{
+    flex: 1 1 20rem;
+}
+.contact .box .iframe iframe{
+    width: 100%;
+    padding: 2rem;
+}
+.contact .box form{
+    /* background-color: #0088ff; */
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1 1 20rem;
+    padding: .5rem;
+}
+.contact .box .input-box{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.contact .box form .input-box input{
+    padding: 10px;
+    width: 47%;
+    border-radius: .2rem;
+    outline: none;
+    border: .1rem solid #838383;
+    margin: 5px 0;
+}
+.contact .box form textarea{
+    resize: none;
+    width: 97%;
+    padding: 10px;
+    outline: none;
+    border: .1rem solid #838383;
+    margin-left: 6px;
+
+}
+.contact .box form .input-box input::placeholder, .contact .box form textarea::placeholder{
+    color: #55515186;
+}
+.contact .box form .input-box input:focus, .contact .box form textarea:focus{
+    border-color: #00c1d9;
+
+}
+.contact .box form .submit{
+    background: var(--primary-color);
+    width: 30%;
+    padding: 0.5rem;
+    margin-left: 5px;
+    outline: none;
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-family: monospace;
+    font-size: 18px;
+    transition: all 0.2s linear;
+    margin-top: 5px;
+    font-weight: bold;
+
+    transition: transform .8s;
+    transform: translateX(-50px);
+    opacity: 0; 
+}
+.contact .box form .submit.slide{
+    transform: translateX(0px);
+    opacity: 1; 
+}
+
+
+.contact .box form .submit:hover{
+    background-color: #0199ad;
+    color: white;
+}
+
+
+
+/*  -----------------------------------
+    --------------FOOTER---------------
+    ----------------------------------- */
+footer{
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    color: rgb(0, 0, 0);
+}
+footer .footer-box{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+footer .card{
+    width: 260px;
+    height: 260px;
+    /* background-color: #00d900; */
+    padding: 2rem;
+}
+
+footer .desc{
+    width: 260px;
+    height: 260px;
+    /* background-color: #00d900; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+    padding: 1rem;
+    
+}
+footer .desc h1{
+    text-transform: capitalize;
+}
+footer .desc p{
+    text-transform: capitalize;
+    font-family: monospace;
+    color: #000000;
+}
+footer .desc .social-icon{
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    /* background-color: #0043d9; */
+}
+
+footer .desc .social-icon img{
+    width: 100%;
+    transition: all 0.2s linear;
+}
+footer .desc .social-icon img:hover{
+    transform: scale(1.2);
+
+}
+footer .links{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+footer .links h2{
+    font-family: monospace;
+    text-transform: capitalize;
+}
+footer .links .box-link{
+    /* background-color: #0088ff; */
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3px;
+}
+footer .links .box-link a{
+    text-transform: capitalize;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+}
+footer .links .box-link a:hover{
+    color: #3700ff;
+}
+footer .links .box-link a:active{
+    transform: scale(0.95);
+
+}
+footer  .address{
+    display: flex;
+    flex-direction: column;
+}
+footer  .address img{
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+footer  .address address{
+    color: black;
+    font-weight: bold;
+}
+footer p, a{
+    font-family:monospace;
+    color: white;
+}
+footer a:hover{
+    color: rgb(29, 39, 177);
+}
+
+
+/*  -----------------------------------
+    --------------MEDIA RESPONSIVE---------------
+    ----------------------------------- */
+
+
+@media(max-width:650px){
+    .home .container{
+        padding-left: 0;
+    }
+    .home .container .text{
+        width: 100%;
+    }
+    .home .container .clt{
+        width: 100%;
+    }
+
+    .contact .box form .input-box input{
+        width: 100%;
+    }
+    .contact .box form textarea{
+        width: 100%;
+        margin-left: 0;
+    }
+    .contact .box .iframe iframe{
+        padding: 0;
+    }
+    .appoinment-sec .box{
+        padding: 0;
+    }
+    .appoinment-sec .btns .appoinment{
+        padding: 5px 5px;
+    }
+    .appoinment-sec .btns .more{
+        padding: 5px 18px;
+    }
+    .contact {
+        padding: 0;
+    }
+    .contact .box{
+        width: 95%;
+        padding: 0;
+    }
+    .contact .box form .submit{
+        width: 100%;
+        margin-left: 0;
+    }
+    footer {
+        padding: 0%;
+    }
+    footer .footer-box{
+        padding: 0%;
+    }
+    footer .card{
+        padding: 0%;
+    }
+    footer .links{
+        align-items: center;
+    }
+    footer .links .box-link a{
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @media screen and (max-width:640px){
+    .container{
+       flex-direction: column;
+    }
+} */
+
